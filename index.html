@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conozca mejor los hongos que cuidan su viñedo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --suelo:#2E211A;
+  --suelo-2:#3B2B21;
+  --malbec:#6B1F3A;
+  --ocre:#C99A5B;
+  --jarilla:#6F7A39;
+  --hifa:#EBD9B2;
+  --cal:#F6F3EF;
+  --tinta:#2A2320;
+  --tinta-suave:#5E534C;
+  --linea:#DDD3C8;
+  --papel:#FFFFFF;
+  --acento:var(--malbec);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --cal:#1F1814; --papel:#2A211C; --tinta:#F1E9DF; --tinta-suave:#C7B9AB;
+    --linea:#4A3B31; --acento:#D98BA6; --jarilla:#A7B56A;
+  }
+}
+:root[data-theme="dark"]{
+  --cal:#1F1814; --papel:#2A211C; --tinta:#F1E9DF; --tinta-suave:#C7B9AB;
+  --linea:#4A3B31; --acento:#D98BA6; --jarilla:#A7B56A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cal);color:var(--tinta);
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:1.0625rem;line-height:1.6}
+img,svg{max-width:100%;display:block}
+h1,h2,h3{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;line-height:1.08;margin:0}
+h2{font-size:clamp(1.75rem,5vw,2.4rem);font-weight:800;letter-spacing:-.01em;margin-bottom:.9rem}
+h3{font-size:1.2rem;font-weight:700;margin-bottom:.35rem}
+p{margin:0 0 1rem}
+a{color:var(--acento)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ocre);outline-offset:3px;border-radius:4px}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.35rem}
+
+/* ---------- HERO: corte de suelo ---------- */
+.hero{background:var(--suelo);color:var(--hifa)}
+.hero svg{width:100%;height:clamp(250px,46vw,560px)}
+.hero .hifa path{fill:none;stroke:var(--hifa);stroke-width:1.4;stroke-linecap:round;opacity:.85;
+  stroke-dasharray:900;stroke-dashoffset:900;animation:crecer 3.2s ease-out forwards}
+.hero .hifa path:nth-child(3n){animation-delay:.4s}
+.hero .hifa path:nth-child(3n+1){animation-delay:.8s}
+@keyframes crecer{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.hero .hifa path{animation:none;stroke-dashoffset:0}}
+.hero-texto{padding-top:1.2rem;padding-bottom:3rem}
+.hero h1{font-size:clamp(2.6rem,10vw,4.6rem);font-weight:800;color:#FFF6E6;letter-spacing:-.02em;margin-bottom:1rem}
+.hero .bajada{font-size:1.2rem;max-width:34rem;color:var(--hifa)}
+.firma{display:flex;gap:.9rem;align-items:center;margin:1.6rem 0 1.8rem}
+.monograma{flex:none;width:3.4rem;height:3.4rem;border-radius:50%;background:var(--ocre);color:var(--suelo);
+  display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.25rem}
+.firma p{margin:0;font-size:.98rem;line-height:1.4;color:#E6D6BC}
+.firma strong{color:#FFF6E6;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#0E2A17;font-weight:700;
+  text-decoration:none;padding:.85rem 1.25rem;border-radius:999px;font-size:1.05rem}
+.btn svg{width:1.3rem;height:1.3rem}
+.btn:hover{background:#3BE07A}
+
+/* ---------- secciones ---------- */
+section.bloque{padding:3.2rem 0;border-bottom:1px solid var(--linea)}
+.pie-foto{font-size:.92rem;color:var(--tinta-suave)}
+.intro-grande{font-size:1.25rem;line-height:1.5}
+.foto{margin:1.6rem 0 0}
+.foto img{width:100%;height:auto;border-radius:10px;background:var(--linea)}
+.foto figcaption{font-size:.92rem;color:var(--tinta-suave);margin-top:.5rem}
+.foto-vertical img{max-width:26rem}
+img.monograma{object-fit:cover;padding:0;border:2px solid var(--ocre)}
+.retrato img{width:100%;height:100%;object-fit:cover}
+
+/* hongos: tres papeles */
+.papeles{display:grid;gap:1.1rem;margin-top:1.4rem}
+.papel{display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;align-items:start}
+.papel svg{width:3.2rem;height:3.2rem}
+.papel p{margin:0;color:var(--tinta-suave)}
+
+/* pedido */
+.pedido{background:var(--papel);border-left:6px solid var(--malbec);padding:1.4rem 1.4rem 1rem;border-radius:0 10px 10px 0;margin-top:1.2rem}
+.pedido ul{margin:.4rem 0 1rem;padding-left:1.2rem}
+.zonas{display:grid;gap:1rem;margin:1.2rem 0 1.6rem}
+@media (min-width:640px){.zonas{grid-template-columns:repeat(2,1fr)}}
+.zona{border-top:3px solid var(--jarilla);padding-top:.7rem}
+.zona h3{font-size:1.05rem;margin-bottom:.25rem}
+.zona p{margin:0;color:var(--tinta-suave);font-size:.98rem}
+
+.pedido li{margin-bottom:.45rem}
+
+/* protocolo */
+.diagramas{display:grid;gap:1.4rem;margin:1.6rem 0}
+@media (min-width:640px){.diagramas{grid-template-columns:1.25fr 1fr;align-items:center}}
+.diagramas figure{margin:0;background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:1rem}
+.diagramas figcaption{font-size:.92rem;color:var(--tinta-suave);margin-top:.6rem}
+.dg-texto{fill:var(--tinta);font-family:"Atkinson Hyperlegible",sans-serif}
+.dg-suave{fill:var(--tinta-suave);font-family:"Atkinson Hyperlegible",sans-serif}
+ol.pasos{list-style:none;counter-reset:p;padding:0;margin:0}
+ol.pasos li{counter-increment:p;position:relative;padding-left:3rem;margin-bottom:1.1rem}
+ol.pasos li::before{content:counter(p);position:absolute;left:0;top:-.1rem;width:2.1rem;height:2.1rem;border-radius:50%;
+  background:var(--suelo);color:var(--hifa);display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:700}
+.tranquilidad{margin-top:1.8rem;background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:1.3rem 1.4rem}
+.tranquilidad ul{list-style:none;padding:0;margin:.6rem 0 0}
+.tranquilidad li{position:relative;padding-left:1.9rem;margin-bottom:.6rem}
+.tranquilidad li::before{content:"";position:absolute;left:0;top:.3rem;width:1.1rem;height:1.1rem;border-radius:50%;
+  background:var(--jarilla);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 0a10 10 0 100 20 10 10 0 000-20zm-1.3 14.2L4.5 10l1.4-1.4 2.8 2.8 5.4-5.4 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 0a10 10 0 100 20 10 10 0 000-20zm-1.3 14.2L4.5 10l1.4-1.4 2.8 2.8 5.4-5.4 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* beneficios */
+.beneficios{display:grid;gap:1.3rem;margin-top:1.2rem}
+@media (min-width:640px){.beneficios{grid-template-columns:1fr 1fr}}
+.beneficio{border-top:3px solid var(--ocre);padding-top:.8rem}
+.beneficio p{margin:0;color:var(--tinta-suave)}
+
+/* calendario */
+.linea-tiempo{list-style:none;margin:1.2rem 0 0;padding:0;border-left:3px solid var(--ocre)}
+.linea-tiempo li{position:relative;padding:0 0 1.2rem 1.4rem}
+.linea-tiempo li::before{content:"";position:absolute;left:-.55rem;top:.35rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--malbec);border:2px solid var(--cal)}
+.linea-tiempo strong{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem}
+.linea-tiempo span{color:var(--tinta-suave)}
+
+/* quién soy */
+.quien{display:grid;gap:1.4rem}
+@media (min-width:640px){.quien{grid-template-columns:9rem 1fr}}
+.retrato{width:9rem;height:9rem;border-radius:50%;background:var(--suelo);display:grid;place-items:center;overflow:hidden}
+.retrato span{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.6rem;color:var(--ocre)}
+.trayectoria{margin:.4rem 0 0;padding-left:1.2rem}
+.trayectoria li{margin-bottom:.45rem}
+
+/* preguntas */
+details{border-bottom:1px solid var(--linea);padding:.9rem 0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"Bricolage Grotesque",sans-serif;font-size:1.4rem;line-height:1;color:var(--acento)}
+details[open] summary::after{content:"–"}
+details p{margin:.6rem 0 0;color:var(--tinta-suave)}
+
+/* contacto */
+.contacto{background:var(--suelo);color:var(--hifa);padding:3.4rem 0 3rem}
+.contacto h2{color:#FFF6E6}
+.contacto a{color:#FFE2B0}
+.datos{list-style:none;padding:0;margin:1.2rem 0 1.8rem;font-size:1.08rem}
+.datos li{margin-bottom:.55rem}
+.instituciones{font-size:.92rem;color:#CDB99C;margin-top:2.2rem;border-top:1px solid #4E3C30;padding-top:1.2rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustración de un corte de suelo: arriba una hilera de viñedo y arbustos de la vegetación nativa; abajo, raíces unidas por una red de hongos.">
+    <defs>
+      <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9FC3D6"/><stop offset="1" stop-color="#E9DCC3"/>
+      </linearGradient>
+      <linearGradient id="tierra" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8A6440"/><stop offset=".18" stop-color="#5A3F2B"/><stop offset="1" stop-color="#2E211A"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="230" fill="url(#cielo)"/>
+    <!-- cordillera -->
+    <path d="M0 175 L90 120 L150 150 L240 88 L330 140 L410 104 L500 150 L600 96 L690 138 L790 92 L880 142 L960 110 L1060 150 L1130 118 L1200 140 L1200 230 L0 230Z" fill="#B7B3B8" opacity=".75"/>
+    <path d="M240 88 L262 104 L248 102 L236 112Z M600 96 L622 112 L606 108Z M790 92 L812 108 L796 105Z" fill="#FFFFFF" opacity=".8"/>
+    <rect y="222" width="1200" height="338" fill="url(#tierra)"/>
+    <!-- viñedo: postes y alambre -->
+    <g stroke="#4A3423" stroke-width="5" stroke-linecap="round">
+      <line x1="70" y1="230" x2="70" y2="138"/><line x1="560" y1="230" x2="560" y2="138"/>
+    </g>
+    <line x1="70" y1="150" x2="560" y2="150" stroke="#6A5A4A" stroke-width="1.5"/>
+    <line x1="70" y1="178" x2="560" y2="178" stroke="#6A5A4A" stroke-width="1.5"/>
+    <g id="cepas">
+      <g transform="translate(140 0)">
+        <path d="M0 230 C2 205 -4 190 2 178" stroke="#5B3E28" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g fill="#5E7A2E"><ellipse cx="-18" cy="152" rx="26" ry="16"/><ellipse cx="18" cy="146" rx="28" ry="18"/><ellipse cx="0" cy="134" rx="22" ry="14"/></g>
+        <g fill="#6B1F3A"><circle cx="-6" cy="168" r="5"/><circle cx="2" cy="172" r="5"/><circle cx="-2" cy="178" r="5"/><circle cx="6" cy="166" r="5"/></g>
+      </g>
+      <g transform="translate(260 0)">
+        <path d="M0 230 C-3 206 3 190 -1 178" stroke="#5B3E28" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g fill="#5E7A2E"><ellipse cx="-20" cy="150" rx="27" ry="17"/><ellipse cx="17" cy="148" rx="27" ry="17"/><ellipse cx="-2" cy="133" rx="23" ry="14"/></g>
+        <g fill="#6B1F3A"><circle cx="10" cy="168" r="5"/><circle cx="4" cy="173" r="5"/><circle cx="12" cy="176" r="5"/></g>
+      </g>
+      <g transform="translate(380 0)">
+        <path d="M0 230 C3 206 -3 192 1 178" stroke="#5B3E28" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g fill="#5E7A2E"><ellipse cx="-19" cy="151" rx="26" ry="17"/><ellipse cx="19" cy="147" rx="27" ry="18"/><ellipse cx="1" cy="134" rx="22" ry="14"/></g>
+        <g fill="#6B1F3A"><circle cx="-8" cy="170" r="5"/><circle cx="-2" cy="175" r="5"/><circle cx="-10" cy="178" r="5"/></g>
+      </g>
+      <g transform="translate(495 0)">
+        <path d="M0 230 C-2 207 3 192 0 178" stroke="#5B3E28" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g fill="#5E7A2E"><ellipse cx="-18" cy="152" rx="25" ry="16"/><ellipse cx="18" cy="147" rx="26" ry="17"/><ellipse cx="0" cy="135" rx="21" ry="13"/></g>
+        <g fill="#6B1F3A"><circle cx="4" cy="169" r="5"/><circle cx="10" cy="174" r="5"/></g>
+      </g>
+    </g>
+    <!-- vegetación nativa: jarillas y algarrobo -->
+    <g>
+      <g fill="#6F7A39"><ellipse cx="720" cy="206" rx="48" ry="28"/><ellipse cx="758" cy="196" rx="36" ry="26"/><ellipse cx="690" cy="212" rx="30" ry="18"/></g>
+      <path d="M940 230 C938 190 944 170 930 150 M938 186 C955 170 975 168 990 160 M936 176 C918 160 900 158 884 150" stroke="#5B4430" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <g fill="#7F8A45"><ellipse cx="930" cy="132" rx="70" ry="30"/><ellipse cx="990" cy="146" rx="46" ry="20"/><ellipse cx="880" cy="146" rx="44" ry="20"/></g>
+      <g fill="#6F7A39"><ellipse cx="1110" cy="208" rx="54" ry="26"/><ellipse cx="1080" cy="198" rx="30" ry="22"/></g>
+      <g fill="#8C9750"><circle cx="820" cy="222" r="10"/><circle cx="836" cy="218" r="8"/><circle cx="1010" cy="222" r="9"/></g>
+    </g>
+    <!-- raíces -->
+    <g stroke="#1E1510" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
+      <path d="M140 230 C136 280 150 320 132 380 M140 262 C120 290 100 300 86 330 M142 290 C170 318 186 330 196 368"/>
+      <path d="M260 230 C264 290 252 330 262 400 M260 270 C240 300 226 320 214 360 M262 300 C288 330 300 350 318 380"/>
+      <path d="M380 230 C376 286 390 330 378 396 M380 268 C404 296 420 310 436 346"/>
+      <path d="M495 230 C498 290 486 330 496 390 M496 272 C520 300 540 320 552 356"/>
+      <path d="M720 232 C716 280 728 320 716 370 M722 262 C700 290 684 300 668 336 M724 280 C750 310 764 330 776 360"/>
+      <path d="M940 230 C944 300 928 350 940 430 M942 280 C972 310 990 340 1004 380 M938 300 C910 330 894 350 882 392"/>
+      <path d="M1110 232 C1106 290 1118 330 1106 380 M1110 270 C1090 300 1074 312 1060 346"/>
+    </g>
+    <!-- red de hongos -->
+    <g class="hifa">
+      <path d="M86 330 C150 350 170 360 214 360 C260 362 300 378 318 380"/>
+      <path d="M196 368 C240 400 300 410 378 396 C420 388 460 370 496 390"/>
+      <path d="M436 346 C480 350 520 352 552 356 C600 362 630 340 668 336"/>
+      <path d="M552 356 C600 390 650 380 716 370 C750 366 770 362 776 360"/>
+      <path d="M776 360 C820 372 850 390 882 392 C910 394 920 420 940 430"/>
+      <path d="M1004 380 C1030 370 1046 356 1060 346 C1080 340 1096 360 1106 380"/>
+      <path d="M262 400 C320 440 420 450 496 420 C560 396 640 440 716 420 C800 400 860 450 940 430"/>
+      <path d="M132 380 C160 430 230 450 262 400"/>
+      <path d="M378 396 C400 440 440 470 500 470 C580 470 620 480 700 470 C780 460 860 470 940 460 C1000 454 1050 420 1106 380"/>
+      <path d="M318 380 C360 360 400 350 436 346"/>
+      <path d="M940 430 C980 440 1010 400 1004 380"/>
+      <path d="M668 336 C690 380 700 400 716 420"/>
+    </g>
+    <g fill="#EBD9B2" opacity=".9">
+      <circle cx="214" cy="360" r="3.5"/><circle cx="378" cy="396" r="3.5"/><circle cx="552" cy="356" r="3.5"/>
+      <circle cx="716" cy="370" r="3.5"/><circle cx="882" cy="392" r="3.5"/><circle cx="1060" cy="346" r="3.5"/>
+      <circle cx="496" cy="420" r="3"/><circle cx="700" cy="470" r="3"/><circle cx="940" cy="430" r="3.5"/>
+    </g>
+  </svg>
+
+  <div class="wrap hero-texto">
+    <h1>Conozca mejor los hongos que cuidan su viñedo</h1>
+    <p class="bajada">Lo invito a participar en un estudio en fincas del centro-oeste argentino para entender cómo influyen el paisaje y el clima sobre los hongos del suelo del viñedo y de la vegetación nativa, y así poder conservarlos junto con los beneficios que brindan.</p>
+    <div class="firma">
+      <img class="monograma" src="img/david-retrato.jpg" alt="" width="54" height="54">
+      <p><strong>David de la Cruz</strong><br>Biólogo, becario doctoral del CONICET en el IADIZA, Mendoza</p>
+    </div>
+    <a class="btn" href="https://wa.me/5492616657563?text=Hola%20David%2C%20vi%20la%20informaci%C3%B3n%20del%20proyecto%20y%20me%20interesa%20participar." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+      Escribirme por WhatsApp
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Por qué los hongos del suelo importan en una finca</h2>
+      <p class="intro-grande">En una cucharada de tierra viven cientos de especies de hongos que no vemos, pero que influyen en cómo crecen las plantas.</p>
+      <div class="papeles">
+        <div class="papel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#6F7A39" opacity=".15"/><path d="M24 8v32M24 20c-6 2-10 7-11 13M24 24c6 2 9 6 10 11" stroke="#6F7A39" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M13 33c4 1 8-1 11 2s7 3 10 0" stroke="#C99A5B" stroke-width="1.6" fill="none" stroke-dasharray="2 3"/></svg>
+          <div><h3>Aliados de las raíces</h3><p>Los hongos micorrícicos se asocian a las raíces de la vid y de las plantas nativas y las ayudan a obtener agua y nutrientes de forma más eficiente y a tolerar la sequía.</p></div>
+        </div>
+        <div class="papel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#C99A5B" opacity=".18"/><path d="M12 32c3-8 9-12 16-12 5 0 8 2 9 5" stroke="#8A6440" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="18" cy="34" r="2.5" fill="#8A6440"/><circle cx="26" cy="31" r="2" fill="#8A6440"/><circle cx="33" cy="33" r="2.5" fill="#8A6440"/></svg>
+          <div><h3>Recicladores</h3><p>Otros descomponen la materia orgánica, como hojas, sarmientos y restos de poda, y devuelven sus nutrientes al suelo.</p></div>
+        </div>
+        <div class="papel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#6B1F3A" opacity=".13"/><circle cx="24" cy="24" r="9" stroke="#6B1F3A" stroke-width="2.4" fill="none"/><path d="M24 11v4M24 33v4M11 24h4M33 24h4M15 15l3 3M30 30l3 3M33 15l-3 3M18 30l-3 3" stroke="#6B1F3A" stroke-width="2" stroke-linecap="round"/></svg>
+          <div><h3>Enfermedades y su control</h3><p>Algunos pueden causar enfermedades, y otros ayudan a controlar enfermedades y plagas. Entender qué favorece a cada grupo ayuda a mantener suelos sanos en la finca y en la vegetación nativa.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>El proyecto</h2>
+      <p>En un estudio anterior tomamos muestras en 37 parches de vegetación nativa del Monte junto a viñedos, en seis provincias del oeste argentino, y encontramos más de 800 tipos de hongos. Vimos que la cantidad de viñedo alrededor cambia cuántos hongos viven en esos parches, y que el clima de cada zona decide cuáles.</p>
+      <p>Ahora queremos dar el paso siguiente: <strong>sumar los viñedos al estudio</strong> y recorrer un gradiente climático más amplio, que abarca cuatro ecorregiones del centro-oeste del país: el Monte, el Chaco Seco, el Espinal y la Pampa. La pregunta es cuánta vida del suelo comparten el viñedo y la vegetación nativa que lo rodea, y cómo cambia eso con el clima y con el paisaje.</p>
+      <p class="pie-foto">El proyecto forma parte de mi tesis doctoral y está financiado por SPUN a través de su programa Underground Explorers. SPUN es una organización internacional que estudia y protege las redes de hongos del suelo en todo el mundo. El trabajo se desarrolla en el IADIZA, instituto del CONICET en Mendoza, donde tengo mi lugar de trabajo.</p>
+      <figure class="foto foto-vertical">
+        <img src="img/muestreo-vegetacion-nativa.jpg" alt="David toma una muestra de suelo con un sacabocado en la vegetación nativa; a su lado, la cinta que marca la parcela y la bolsa con la muestra." width="768" height="960" loading="lazy">
+        <figcaption>Muestreo de suelo en la vegetación nativa, con la parcela marcada con cinta.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Qué necesitamos</h2>
+      <p>Buscamos fincas con parcelas de Malbec (preferentemente) en estas zonas, que cubren las cuatro ecorregiones del estudio:</p>
+      <div class="zonas">
+        <div class="zona"><h3>Monte</h3><p>San Rafael y General Alvear (sur de Mendoza) y 25 de Mayo (La Pampa).</p></div>
+        <div class="zona"><h3>Chaco Seco</h3><p>Norte de San Luis, Merlo y alrededores, y Villa Dolores y La Paz (Córdoba).</p></div>
+        <div class="zona"><h3>Espinal</h3><p>Centro de La Pampa, en la zona del caldenal: Telén y General Acha.</p></div>
+        <div class="zona"><h3>Pampa</h3><p>Noreste de La Pampa: Trenel, Arata, Eduardo Castex, Winifreda, Caleufú y Pichi Huinca.</p></div>
+      </div>
+      <p>En cada finca necesitamos su permiso para tomar pequeñas muestras de suelo en dos lugares:</p>
+      <div class="pedido">
+        <ul>
+          <li><strong>En una parcela de viñedo</strong>, preferentemente de Malbec, siempre en el interfilar, sin tocar las plantas.</li>
+          <li><strong>En la vegetación nativa cercana</strong>, dentro de la finca o en sus alrededores.</li>
+        </ul>
+        <p>Es <strong>una sola visita</strong> en primavera (entre octubre y noviembre de 2026), de alrededor de una hora por sitio, en el día y horario que a usted le quede cómodo. Participar no tiene ningún costo.</p>
+        <p><strong>Los datos de cada finca son confidenciales.</strong> Analizamos todas las fincas en conjunto y no publicamos resultados individuales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Cómo es el muestreo</h2>
+      <p>Seguimos el protocolo internacional de SPUN, el mismo que se usa en expediciones de muestreo en decenas de países.</p>
+
+      <div class="diagramas">
+        <figure>
+          <svg viewBox="0 0 320 300" role="img" aria-label="Parcela de 30 por 30 metros con nueve puntos de muestreo separados cada 15 metros: cuatro en las esquinas, cuatro en el medio de cada lado y uno en el centro.">
+            <rect x="50" y="30" width="220" height="220" fill="none" stroke="#C99A5B" stroke-width="2" stroke-dasharray="6 5"/>
+            <g fill="#6B1F3A">
+              <circle cx="50" cy="30" r="9"/><circle cx="160" cy="30" r="9"/><circle cx="270" cy="30" r="9"/>
+              <circle cx="50" cy="140" r="9"/><circle cx="160" cy="140" r="11" fill="#2E211A"/><circle cx="270" cy="140" r="9"/>
+              <circle cx="50" cy="250" r="9"/><circle cx="160" cy="250" r="9"/><circle cx="270" cy="250" r="9"/>
+            </g>
+            <line x1="50" y1="278" x2="160" y2="278" style="stroke:var(--tinta-suave)" stroke-width="1"/>
+            <line x1="160" y1="278" x2="270" y2="278" style="stroke:var(--tinta-suave)" stroke-width="1"/>
+            <text x="105" y="295" text-anchor="middle" class="dg-suave" font-size="13">15 m</text>
+            <text x="215" y="295" text-anchor="middle" class="dg-suave" font-size="13">15 m</text>
+            <text x="160" y="170" text-anchor="middle" class="dg-texto" font-size="13" font-weight="700">centro</text>
+            <text x="22" y="145" text-anchor="middle" class="dg-suave" font-size="13" transform="rotate(-90 22 145)">30 m</text>
+          </svg>
+          <figcaption>Nueve puntos en una parcela de 30&nbsp;×&nbsp;30&nbsp;m: cuatro en las esquinas, cuatro en el medio de cada lado y uno en el centro.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 220 240" role="img" aria-label="Cada pocito mide 5 centímetros de diámetro y 10 de profundidad. De cada parcela nos llevamos una bolsa ziploc con unos 500 gramos de tierra.">
+            <rect x="0" y="60" width="220" height="180" fill="#8A6440" opacity=".25"/>
+            <line x1="0" y1="60" x2="220" y2="60" stroke="#8A6440" stroke-width="2"/>
+            <rect x="85" y="60" width="50" height="100" fill="#5A3F2B" rx="3"/>
+            <ellipse cx="110" cy="60" rx="25" ry="7" fill="#3B2B21"/>
+            <line x1="85" y1="44" x2="135" y2="44" style="stroke:var(--tinta-suave)" stroke-width="1"/>
+            <text x="110" y="36" text-anchor="middle" class="dg-texto" font-size="14" font-weight="700">5 cm</text>
+            <line x1="150" y1="60" x2="150" y2="160" style="stroke:var(--tinta-suave)" stroke-width="1"/>
+            <text x="158" y="115" class="dg-texto" font-size="14" font-weight="700">10 cm</text>
+            <!-- bolsa ziploc -->
+            <rect x="10" y="6" width="58" height="48" rx="4" fill="none" stroke="#6B1F3A" stroke-width="2"/>
+            <line x1="10" y1="15" x2="68" y2="15" stroke="#6B1F3A" stroke-width="2"/>
+            <text x="39" y="40" text-anchor="middle" class="dg-texto" font-size="13" font-weight="700">500 g</text>
+          </svg>
+          <figcaption>Cada pocito mide 5 cm de ancho y 10 cm de profundidad y se vuelve a tapar. De cada parcela nos llevamos una bolsa ziploc con unos 500 g de tierra.</figcaption>
+        </figure>
+      </div>
+
+      <ol class="pasos">
+        <li>Marcamos con una cinta métrica una parcela de 30&nbsp;×&nbsp;30&nbsp;m. No clavamos estacas ni dejamos marcas.</li>
+        <li>En cada uno de los nueve puntos retiramos la hojarasca y sacamos un pequeño cilindro de tierra con un sacabocado manual.</li>
+        <li>Mezclamos las nueve porciones y nos llevamos una bolsa ziploc con aproximadamente 500 g de tierra por parcela.</li>
+        <li>Tapamos los pocitos y seguimos. En el laboratorio del IADIZA extraemos el ADN de los hongos y analizamos la química del suelo.</li>
+      </ol>
+
+      <figure class="foto foto-vertical">
+        <img src="img/muestreo-vinedo.jpg" alt="Dos personas trabajan en el interfilar de un viñedo; una cinta métrica marca la línea de muestreo entre las hileras." width="768" height="960" loading="lazy">
+        <figcaption>En el viñedo trabajamos solo en el interfilar, siguiendo la cinta que marca la parcela.</figcaption>
+      </figure>
+
+      <div class="tranquilidad">
+        <h3>Lo que no vamos a hacer</h3>
+        <ul>
+          <li>Muestreamos solo en el interfilar: no tocamos las plantas, el sistema de riego, los postes ni la cosecha.</li>
+          <li>No usamos maquinaria, químicos ni cortamos plantas.</li>
+          <li>Desinfectamos las herramientas entre sitio y sitio para no llevar tierra de una finca a otra.</li>
+          <li>Coordinamos cada visita con usted y respetamos las normas y los horarios de trabajo de la finca.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Qué aporta su participación</h2>
+      <p>Los hongos del suelo, y en especial los micorrícicos, sostienen beneficios clave para la finca y para el ambiente natural. Pero todavía sabemos muy poco sobre cómo los afectan el paisaje y el clima en las zonas vitivinícolas del centro-oeste argentino.</p>
+      <div class="beneficios">
+        <div class="beneficio"><h3>Conocimiento para conservarlos</h3><p>Los resultados mostrarán cómo influye la cantidad de vegetación nativa en el paisaje sobre estos hongos, cuánto aporta la vegetación nativa a los hongos dentro de la finca y cómo los distintos climas modulan estos efectos.</p></div>
+        <div class="beneficio"><h3>Bases para un manejo sustentable</h3><p>Entender qué favorece a estos hongos ayuda a conservar los beneficios que brindan al viñedo y a la vegetación nativa.</p></div>
+        <div class="beneficio"><h3>Charlas, talleres y divulgación</h3><p>Compartiremos los resultados generales en una devolución presencial con los productores que participen, y los difundiremos en distintos formatos de divulgación científica. Puede seguirnos en Instagram: <a href="https://www.instagram.com/astrobiodavid" target="_blank" rel="noopener">@astrobiodavid</a>, <a href="https://www.instagram.com/catadeciencias" target="_blank" rel="noopener">@catadeciencias</a> y <a href="https://www.instagram.com/spununderground/" target="_blank" rel="noopener">@spununderground</a>.</p></div>
+        <div class="beneficio"><h3>Un aporte con nombre propio</h3><p>Si usted quiere, su finca aparece como colaboradora en las publicaciones y en los materiales de divulgación del proyecto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Cómo me gustaría trabajar con usted</h2>
+      <p>Me interesa que el proyecto se construya con los productores, no solo en sus fincas. Si quiere, puede acompañarnos el día del muestreo y ver cómo trabajamos. También me gustaría conversar sobre cómo maneja su finca y qué preguntas tiene sobre su suelo, para que el estudio responda también a las inquietudes de los productores.</p>
+      <p>Con su permiso, grabaremos cómo trabajamos en el campo para producir material audiovisual de divulgación científica, que compartiremos en redes y en espacios como <em>Cata de Ciencias</em> y <em>Radio Matices del Vino</em>. Si lo desea, usted también puede participar de las grabaciones: nos interesan su punto de vista y su conocimiento sobre la finca y el paisaje.</p>
+      <p>Además, estamos abiertos a seguir trabajando juntos en otros proyectos más allá de este estudio.</p>
+      <figure class="foto">
+        <img src="img/charla-productores.jpg" alt="David presenta el proyecto frente a un grupo sentado alrededor de una mesa, con una proyección titulada ¿Qué queremos saber?" width="1100" height="825" loading="lazy">
+        <figcaption>Una charla para compartir las preguntas y los avances del proyecto.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Calendario</h2>
+      <ul class="linea-tiempo">
+        <li><strong>Septiembre y octubre de 2026</strong><span>Contacto con las fincas y coordinación de visitas.</span></li>
+        <li><strong>Octubre y noviembre de 2026</strong><span>Muestreo de suelo en primavera.</span></li>
+        <li><strong>Diciembre de 2026 a mayo de 2027</strong><span>Trabajo de laboratorio y análisis de datos.</span></li>
+        <li><strong>Junio de 2027</strong><span>Presentación de los resultados generales en un taller con los productores.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Quién soy</h2>
+      <div class="quien">
+        <div class="retrato"><img src="img/david-retrato.jpg" alt="Retrato de David de la Cruz" width="144" height="144" loading="lazy"></div>
+        <div>
+          <p>Soy <strong>David José de la Cruz López</strong>, biólogo y doctorando en Ciencia y Tecnología en la Universidad Nacional de Cuyo, con beca doctoral del CONICET. Trabajo en el Laboratorio de Interacciones Ecológicas (INTERACTIO) del IADIZA, en Mendoza, donde estudio cómo responde la vida del suelo al paisaje y a las prácticas agrícolas en los viñedos, usando ADN ambiental.</p>
+          <ul class="trayectoria">
+            <li>Licenciado en Ciencias Biológicas por la Universidad Nacional de San Luis.</li>
+            <li>Investigador invitado en el CIRAD, Montpellier, Francia (2024).</li>
+            <li>Presenté este trabajo en el 15.º Congreso Internacional de Terroir (2024) y en el I Congreso Trinacional de Ecología (2025).</li>
+            <li>Integro la oficina de comunicación científica del IADIZA y creé el proyecto de divulgación <em>ARN mensajero</em>.</li>
+          </ul>
+          <p style="margin-top:1rem">Me dirigen la Dra. Melanie Roy (IRL IFAECI, especialista en hongos del suelo) y el Dr. Diego Vázquez (IADIZA-CONICET). En el equipo también trabajan la Dra. Micaela Santos y la Dra. Paula Cornejo (IADIZA-CONICET).</p>
+          <figure class="foto">
+            <img src="img/laboratorio.jpg" alt="David, con guantes y guardapolvo, pipetea en el laboratorio." width="800" height="800" loading="lazy">
+            <figcaption>En el laboratorio, extrayendo el ADN de los hongos del suelo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Tengo que pagar algo o firmar algún compromiso?</summary><p>No. Participar es gratuito. Solo le pedimos su autorización para ingresar y tomar las muestras.</p></details>
+      <details><summary>¿Qué pasa con los datos de mi finca?</summary><p>Son confidenciales. Analizamos todas las fincas en conjunto y no publicamos resultados, nombres ni ubicaciones de fincas individuales. Su finca aparece como colaboradora solo si usted lo autoriza.</p></details>
+      <details><summary>¿Puede afectar mi viñedo?</summary><p>No. Sacamos nueve pequeños cilindros de tierra (5 cm de ancho y 10 cm de profundidad) en el interfilar, sin tocar las plantas, y volvemos a tapar los pocitos. Desinfectamos las herramientas entre fincas.</p></details>
+      <details><summary>¿Y si después cambio de opinión?</summary><p>Puede dejar de participar cuando quiera, sin dar explicaciones.</p></details>
+      <details><summary>¿Voy a recibir resultados de mi finca?</summary><p>El estudio analiza el conjunto de las fincas para entender el efecto del paisaje y el clima a escala regional, por eso no preparamos informes individuales. Compartiremos los resultados generales en un taller a mediados de 2027.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="contacto">
+  <div class="wrap">
+    <h2>Conversemos</h2>
+    <p>Si le interesa participar o tiene preguntas, escríbame. Con gusto lo llamo o lo visito para contarle el proyecto en persona.</p>
+    <ul class="datos">
+      <li>WhatsApp: <a href="https://wa.me/5492616657563" target="_blank" rel="noopener">+54 9 261 665 7563</a></li>
+      <li>Correo institucional: <a href="mailto:ddelacruz@mendoza-conicet.gob.ar">ddelacruz@mendoza-conicet.gob.ar</a></li>
+      <li>Correo personal: <a href="mailto:davidjosedelacruzlopez@gmail.com">davidjosedelacruzlopez@gmail.com</a></li>
+      <li>Instagram: <a href="https://www.instagram.com/astrobiodavid" target="_blank" rel="noopener">@astrobiodavid</a>, <a href="https://www.instagram.com/catadeciencias" target="_blank" rel="noopener">@catadeciencias</a> y <a href="https://www.instagram.com/spununderground/" target="_blank" rel="noopener">@spununderground</a></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5492616657563?text=Hola%20David%2C%20vi%20la%20informaci%C3%B3n%20del%20proyecto%20y%20me%20interesa%20participar." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+      Escribirme por WhatsApp
+    </a>
+    <p class="instituciones">Instituto Argentino de Investigaciones de las Zonas Áridas (IADIZA), CONICET Mendoza<br>Universidad Nacional de Cuyo<br>IRL IFAECI<br>SPUN, Society for the Protection of Underground Networks</p>
+  </div>
+</footer>
+
+</body>
+</html>
